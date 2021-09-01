@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<!--
+Template Name: Natucam
+Author: <a href="https://www.os-templates.com/">OS Templates</a>
+Author URI: https://www.os-templates.com/
+Licence: Free to use under our free template licence terms
+Licence URI: https://www.os-templates.com/template-terms
+-->
+<html lang="">
+<!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
+<head>
+<title>Locator/ID Separation Protocol</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+</head>
+<body id="top">
+    
+<div class="bgded overlay" style="background-color:inherit;"> 
+  <div class="wrapper row1">
+    <header id="header" class="hoc clear"> 
+      <nav id="mainav" class="fl_right">
+        <ul class="clear">
+          <li class="active"><a href="index.html">Início</a></li>
+          <li><a href="map.html">Localização vs Identificação</a></li>
+        </ul>
+      </nav>
+    </header>
+  </div>
+  <div id="pageintro" class="hoc clear">
+    <article> 
+      <img src="images\lisp.png" alt="LISP Logo">
+      <h3 class="heading">Marcos Gabriel S. M. Loures</h3>
+      </footer>
+    </article>
+  </div>
+</div>
+<main>
+
+    <div class="bgded overlay" style="background-color:inherit;"> 
+    <div class="wrapper row1">
+        <div id="pagetext" class="group">
+        <div class="one_half first">
+            <article> 
+            <h3 class="heading">Resumo</h3>
+            <p>Locator/ID Separation Protocol (LISP) é um protocolo proposto para permitir a separação de duas informações importantes contidas no IP: a localização e identificação. A implementação do LISP permite que, de forma escalável através de agregações, se mantenha informações de um terminal independentemente da sua localização geográfica.</p>
+            </article>
+        </div>
+        <div class="one_half">
+            <article> 
+            <h3 class="heading">Declaração de autoria</h3>
+            <p>“Este trabalho foi totalmente produzido pelos autores que declaram não terem violado os direitos autorais de terceiros, sejam eles pessoas físicas ou jurídicas. Havendo textos, tabelas e figuras transcritos de obras de terceiros com direitos autorais protegidos ou de domínio público tal como idéias e conceitos de terceiros, mesmo que sejam encontrados na Internet, os mesmos estão com os devidos créditos aos autores originais e estão incluídas apenas com o intuito de deixar o trabalho autocontido. O(s) autor(es) tem(êm) ciência dos Artigos 297 a 299 do Código Penal Brasileiro e também que o uso do artifício de copiar/colar texto de outras fontes e outras formas de plágio é um ato ilícito, condenável e passível de punição severa. No contexto da Universidade a punição não precisa se restringir à reprovação na disciplina e pode gerar um processo disciplinar que pode levar o(s) aluno(s) à suspensão.”</p>
+            </article>
+        </div>
+        </div>
+    </div>
+    </div>
+</main>
+
+<!-- End Top Background Image Wrapper -->
+<div class="wrapper row5">
+  <div id="copyright" class="hoc clear"> 
+    <p class="fl_left">Marcos Gabriel S. M. Loures</p>
+    <p class="fl_right">Template por <a target="_blank" href="https://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
+  </div>
+</div>
+<a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
+<!-- JAVASCRIPTS -->
+<script src="layout/scripts/jquery.min.js"></script>
+<script src="layout/scripts/jquery.backtotop.js"></script>
+<script src="layout/scripts/jquery.mobilemenu.js"></script>
+<script src="layout/scripts/jquery.fitvids.js"></script>
+</body>
+<script>
+    async function getContent() {
+        try{
+            var mode = { method: 'POST'};
+            var response = await fetch('http://127.0.0.1:9090', mode);
+            var data = await response.json();
+            show(data);
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    function show(planes) {
+        var output = '<table>';
+        
+        for ( let plane of planes ) {
+            output = output + '<tr>';
+            output = output + '<td>'+plane.co_aviao+'</td>';
+            output = output + '<td>'+plane.latitude+'</td>';
+            output = output + '<td>'+plane.longitude+'</td>';
+            output = output + '</tr>';
+        }
+        output = output + '</table>';
+        document.querySelector('main').innerHTML = output;
+    }
+    getContent();
+</script>
+
+</html>
