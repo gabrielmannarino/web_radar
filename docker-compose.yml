@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  web:
+    container_name: "radar-client"
+    build:
+      context: ./radar-client
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+  server:
+    container_name: "radar-server"
+    build:
+      context: ./radar-server
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
